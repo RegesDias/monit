@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Monitoramento de Servidores</title>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="dist/css/adminlte.min.css">
+</head>
+
+<body class="hold-transition dark-mode">
+  <div class="">
+    <div class="">
+      <section class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="card card-default">
+                <div class="card-header">
+                  <h3 class="card-title">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    Alerta Servidores
+                  </h3>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-md-4">
+                      <div id="primeiroEsquerda"></div>
+                      <div id="atualizarPing1" class="alert alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        <h5><i class="icon fas fa-database"></i> 10.40.10.1 - ASUSTOR</h5>
+                        <pre id="pingOutput1"></pre>
+                      </div>
+                      <div id="atualizarPing6" class="alert alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        <h5><i class="icon fas fa-database"></i> 10.40.10.6 - SDGC.4.0-DB</h5>
+                        <pre id="pingOutput6"></pre>
+                      </div>
+                      <div id="atualizarPing7" class="alert alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        <h5><i class="icon fas fa-database"></i> 10.40.10.7 - GESPESweb</h5>
+                        <pre id="pingOutput7"></pre>
+                      </div>
+                      <div id="atualizarPing8" class="alert alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        <h5><i class="icon fas fa-server"></i> 10.40.10.8 - fileServer</h5>
+                        <pre id="pingOutput8"></pre>
+                      </div>
+                      <div id="atualizarPing9" class="alert alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        <h5><i class="icon fas fa-audio-description"></i> 10.40.10.9 - donPrintFirst</h5>
+                        <pre id="pingOutput9"></pre>
+                      </div>
+                      <div id="atualizarPing10" class="alert alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        <h5><i class="icon fas fa-audio-description"></i> 10.40.10.10 - donPrintSecond</h5>
+                        <pre id="pingOutput10"></pre>
+                      </div>
+                    </div>
+                    <div class="col-md-4" id="divDireita">
+                      <div id="primeiroMeio"></div>
+                      <div id="atualizarPing11" class="alert alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        <h5><i class="icon fas fa-cloud"></i> 10.40.10.11 - VMwareESXi</h5>
+                        <pre id="pingOutput11"></pre>
+                      </div>
+                      <div id="atualizarPing12" class="alert alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        <h5><i class="icon fas fa-cloud"></i> 10.40.10.12 - VMwareESXi</h5>
+                        <pre id="pingOutput12"></pre>
+                      </div>
+                      <div id="atualizarPing13" class="alert alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        <h5><i class="icon fas fa-cloud"></i> 10.40.10.13 - VMwareESXi</h5>
+                        <pre id="pingOutput13"></pre>
+                      </div>
+                      <div id="atualizarPing14" class="alert alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        <h5><i class="icon fas fa-cloud"></i> 10.40.10.14 - VMwareESXi</h5>
+                        <pre id="pingOutput14"></pre>
+                      </div>
+                      <div id="atualizarPing253" class="alert alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        <h5><i class="icon fas fa-wifi"></i> 10.40.10.253 - mikrotik</h5>
+                        <pre id="pingOutput253"></pre>
+                      </div>
+                      <div id="atualizarPing254" class="alert alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        <h5><i class="icon fas fa-wifi"></i> 10.40.10.254 - Internet</h5>
+                        <pre id="pingOutput254"></pre>
+                      </div>
+                    </div>
+                    <div class="col-md-4" id="divDireita">
+                      <div id="primeiroDireita">
+                      </div>
+                      <div id="atualizarPing202" class="alert alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        <h5><i class="icon fas fa-server"></i> 10.40.10.202 - GesPesKey</h5>
+                        <pre id="pingOutput202"></pre>
+                      </div>
+                      <div id="atualizarPing203" class="alert alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        <h5><i class="icon fas fa-server"></i> 10.40.10.203 - GesPesApp</h5>
+                        <pre id="pingOutput203"></pre>
+                      </div>
+                      <div id="atualizarPing233" class="alert alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        <h5><i class="icon fas fa-server"></i> 10.40.10.233 - SDGC.4.0-FrontEND</h5>
+                        <pre id="pingOutput233"></pre>
+                      </div>
+                      <div id="atualizarPing235" class="alert alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        <h5><i class="icon fas fa-server"></i> 10.40.10.235 - SDGC.4.0-BackEND</h5>
+                        <pre id="pingOutput235"></pre>
+                      </div>
+                      <div id="atualizarPing236" class="alert alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        <h5><i class="icon fas fa-server"></i> 10.40.10.236 - SDGC.4.0-JASPER</h5>
+                        <pre id="pingOutput236"></pre>
+                      </div>
+                      <div id="atualizarPing239" class="alert alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        <h5><i class="icon fas fa-download"></i> 10.40.10.239 - CRONTAB</h5>
+                        <pre id="pingOutput239"></pre>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-body col-md-6">
+                    <button id="playButton" class="btn btn-primary">
+                      <i class="nav-icon fas fa-edit"></i> Ativar Alerta
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <aside class="control-sidebar control-sidebar-dark">
+      <!-- Control sidebar content goes here -->
+    </aside>
+    <!-- /.control-sidebar -->
+  </div>
+  <!-- ./wrapper -->
+
+  <!-- jQuery -->
+  <script src="plugins/jquery/jquery.min.js"></script>
+  <!-- Bootstrap 4 -->
+  <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- AdminLTE App -->
+  <script src="dist/js/adminlte.min.js"></script>
+
+</body>
+
+</html>
+<script>
+  $(document).ready(function () {
+    // Quando o botão for clicado
+    $('#playButton').click(function () {
+      // Crie um objeto de áudio
+      var audio = new Audio('som.mp3');
+      // Execute o som
+      audio.play();
+      $('#playButton').attr('class', 'btn btn-warning')
+    });
+  });
+  function atualizarPing1() {
+    $.get("ping.php", { ip: '10.40.10.1' }, function (data) {
+      if (data == 'Offline') {
+        $("#atualizarPing1").addClass('alert-danger');
+        $("#atualizarPing1").removeClass('alert-info');
+        $("#pingOutput1").html('<b>' + data + '</b>');
+        $("#atualizarPing1").insertAfter("#primeiroEsquerda");
+        $('#playButton').click();
+      } else {
+        $("#atualizarPing1").removeClass('alert-danger');
+        $("#atualizarPing1").addClass('alert-info');
+        $("#pingOutput1").html(data);
+      }
+    });
+  }
+  function atualizarPing6() {
+    $.get("ping.php", { ip: '10.40.10.6' }, function (data) {
+      if (data == 'Offline') {
+        $("#atualizarPing6").addClass('alert-danger');
+        $("#atualizarPing6").removeClass('alert-info');
+        $("#pingOutput6").html('<b>' + data + '</b>');
+        $("#atualizarPing6").insertAfter("#primeiroEsquerda");
+        $('#playButton').click();
+      } else {
+        $("#atualizarPing6").removeClass('alert-danger');
+        $("#atualizarPing6").addClass('alert-info');
+        $("#pingOutput6").html(data);
+      }
+
+    });
+  }
+  function atualizarPing7() {
+    $.get("ping.php", { ip: '10.40.10.7' }, function (data) {
+      if (data == 'Offline') {
+        $("#atualizarPing7").addClass('alert-danger');
+        $("#atualizarPing7").removeClass('alert-info');
+        $("#pingOutput7").html('<b>' + data + '</b>');
+        $("#atualizarPing7").insertAfter("#primeiroEsquerda");
+        $('#playButton').click();
+      } else {
+        $("#atualizarPing7").removeClass('alert-danger');
+        $("#atualizarPing7").addClass('alert-info');
+        $("#pingOutput7").html(data);
+      }
+
+    });
+  }
+  function atualizarPing8() {
+    $.get("ping.php", { ip: '10.40.10.8' }, function (data) {
+      if (data == 'Offline') {
+        $("#atualizarPing8").addClass('alert-danger');
+        $("#atualizarPing8").removeClass('alert-info');
+        $("#pingOutput9").html('<b>' + data + '</b>');
+        $("#atualizarPing8").insertAfter("#primeiroEsquerda");
+        $('#playButton').click();
+      } else {
+        $("#atualizarPing8").removeClass('alert-danger');
+        $("#atualizarPing8").addClass('alert-info');
+        $("#pingOutput8").html(data);
+      }
+
+    });
+  }
+  function atualizarPing9() {
+    $.get("ping.php", { ip: '10.40.10.9' }, function (data) {
+      if (data == 'Offline') {
+        $("#atualizarPing9").addClass('alert-danger');
+        $("#atualizarPing9").removeClass('alert-info');
+        $("#pingOutput9").html('<b>' + data + '</b>');
+        $("#atualizarPing9").insertAfter("#primeiroEsquerda");
+        $('#playButton').click();
+      } else {
+        $("#atualizarPing9").removeClass('alert-danger');
+        $("#atualizarPing9").addClass('alert-info');
+        $("#pingOutput9").html(data);
+      }
+
+    });
+  }
+  function atualizarPing10() {
+    $.get("ping.php", { ip: '10.40.10.10' }, function (data) {
+      if (data == 'Offline') {
+        $("#atualizarPing10").addClass('alert-danger');
+        $("#atualizarPing10").removeClass('alert-info');
+        $("#pingOutput10").html('<b>' + data + '</b>');
+        $("#atualizarPing10").insertAfter("#primeiroEsquerda");
+        $('#playButton').click();
+      } else {
+        $("#atualizarPing10").removeClass('alert-danger');
+        $("#atualizarPing10").addClass('alert-info');
+        $("#pingOutput10").html(data);
+      }
+    });
+  }
+  function atualizarPing11() {
+    $.get("ping.php", { ip: '10.40.10.11' }, function (data) {
+      if (data == 'Offline') {
+        $("#atualizarPing11").addClass('alert-danger');
+        $("#atualizarPing11").removeClass('alert-warning');
+        $("#pingOutput11").html('<b>' + data + '</b>');
+        $("#atualizarPing11").insertAfter("#primeiroMeio");
+        $('#playButton').click();
+      } else {
+        $("#atualizarPing11").removeClass('alert-danger');
+        $("#atualizarPing11").addClass('alert-warning');
+        $("#pingOutput11").html(data);
+      }
+    });
+  }
+  function atualizarPing12() {
+    $.get("ping.php", { ip: '10.40.10.12' }, function (data) {
+      if (data == 'Offline') {
+        $("#atualizarPing12").addClass('alert-danger');
+        $("#atualizarPing12").removeClass('alert-warning');
+        $("#pingOutput12").html('<b>' + data + '</b>');
+        $("#atualizarPing12").insertAfter("#primeiroMeio");
+        $('#playButton').click();
+      } else {
+        $("#atualizarPing12").removeClass('alert-danger');
+        $("#atualizarPing12").addClass('alert-warning');
+        $("#pingOutput12").html(data);
+      }
+    });
+  }
+  function atualizarPing13() {
+    $.get("ping.php", { ip: '10.40.10.13' }, function (data) {
+      if (data == 'Offline') {
+        $("#atualizarPing13").addClass('alert-danger');
+        $("#atualizarPing13").removeClass('alert-warning');
+        $("#pingOutput13").html('<b>' + data + '</b>');
+        $("#atualizarPing13").insertAfter("#primeiroMeio");
+        $('#playButton').click();
+      } else {
+        $("#atualizarPing13").removeClass('alert-danger');
+        $("#atualizarPing13").addClass('alert-warning');
+        $("#pingOutput13").html(data);
+      }
+    });
+  }
+  function atualizarPing14() {
+    $.get("ping.php", { ip: '10.40.10.14' }, function (data) {
+      if (data == 'Offline') {
+        $("#atualizarPing14").addClass('alert-danger');
+        $("#atualizarPing14").removeClass('alert-warning');
+        $("#pingOutput14").html('<b>' + data + '</b>');
+        $("#atualizarPing14").insertAfter("#primeiroMeio");
+        $('#playButton').click();
+      } else {
+        $("#atualizarPing14").removeClass('alert-danger');
+        $("#atualizarPing14").addClass('alert-warning');
+        $("#pingOutput14").html(data);
+      }
+    });
+  }
+  function atualizarPing202() {
+    $.get("ping.php", { ip: '10.40.10.202' }, function (data) {
+      if (data == 'Offline') {
+        $("#atualizarPing202").addClass('alert-danger');
+        $("#atualizarPing202").removeClass('alert-info');
+        $("#pingOutput202").html('<b>' + data + '</b>');
+        $("#atualizarPing202").insertAfter("#primeiroDireita");
+        $('#playButton').click();
+      } else {
+        $("#atualizarPing202").removeClass('alert-danger');
+        $("#atualizarPing202").addClass('alert-info');
+        $("#pingOutput202").html(data);
+      }
+    });
+  }
+  function atualizarPing203() {
+    $.get("ping.php", { ip: '10.40.10.203' }, function (data) {
+      if (data == 'Offline') {
+        $("#atualizarPing203").addClass('alert-danger');
+        $("#atualizarPing203").removeClass('alert-info');
+        $("#pingOutput203").html('<b>' + data + '</b>');
+        $("#atualizarPing203").insertAfter("#primeiroDireita");
+        $('#playButton').click();
+      } else {
+        $("#atualizarPing203").removeClass('alert-danger');
+        $("#atualizarPing203").addClass('alert-info');
+
+        $("#pingOutput203").html(data);
+      }
+    });
+  }
+  function atualizarPing203() {
+    $.get("ping.php", { ip: '10.40.10.203' }, function (data) {
+      if (data == 'Offline') {
+        $("#atualizarPing203").addClass('alert-danger');
+        $("#atualizarPing203").removeClass('alert-info');
+        $("#pingOutput203").html('<b>' + data + '</b>');
+        $("#pingOutput203").insertAfter("#primeiroDireita");
+        $('#playButton').click();
+      } else {
+        $("#atualizarPing203").removeClass('alert-danger');
+        $("#atualizarPing203").addClass('alert-info');
+        $("#pingOutput203").html(data);
+      }
+    });
+  }
+  function atualizarPing233() {
+    $.get("ping.php", { ip: '10.40.10.233' }, function (data) {
+      if (data == 'Offline') {
+        $("#atualizarPing233").addClass('alert-danger');
+        $("#atualizarPing233").removeClass('alert-info');
+        $("#pingOutput233").html('<b>' + data + '</b>');
+        $("#atualizarPing233").insertAfter("#primeiroDireita");
+        $('#playButton').click();
+      } else {
+        $("#atualizarPing233").removeClass('alert-danger');
+        $("#atualizarPing233").addClass('alert-info');
+        $("#pingOutput233").html(data);
+      }
+    });
+  }
+  function atualizarPing235() {
+    $.get("ping.php", { ip: '10.40.10.235' }, function (data) {
+      if (data == 'Offline') {
+        $("#atualizarPing235").addClass('alert-danger');
+        $("#atualizarPing235").removeClass('alert-info');
+        $("#atualizarPing235").insertAfter("#primeiroDireita");
+        $("#pingOutput235").html('<b>' + data + '</b>');
+        $('#playButton').click();
+      } else {
+        $("#atualizarPing235").removeClass('alert-danger');
+        $("#atualizarPing235").addClass('alert-info');
+        $("#pingOutput235").html(data);
+      }
+    });
+  }
+  function atualizarPing236() {
+    $.get("ping.php", { ip: '10.40.10.236' }, function (data) {
+      if (data == 'Offline') {
+        $("#atualizarPing236").addClass('alert-danger');
+        $("#atualizarPing236").removeClass('alert-info');
+        $("#atualizarPing236").insertAfter("#primeiroDireita");
+        $("#pingOutput236").html('<b>' + data + '</b>');
+        $('#playButton').click();
+      } else {
+        $("#atualizarPing236").removeClass('alert-danger');
+        $("#atualizarPing236").addClass('alert-info');
+        $("#pingOutput236").html(data);
+      }
+    });
+  }
+  function atualizarPing239() {
+    $.get("ping.php", { ip: '10.40.10.239' }, function (data) {
+      if (data == 'Offline') {
+        $("#atualizarPing239").addClass('alert-danger');
+        $("#atualizarPing239").removeClass('alert-info');
+        $("#pingOutput239").html('<b>' + data + '</b>');
+        $("#atualizarPing239").insertAfter("#primeiroDireita");
+        $('#playButton').click();
+      } else {
+        $("#atualizarPing239").removeClass('alert-danger');
+        $("#atualizarPing239").addClass('alert-info');
+        $("#pingOutput239").html(data);
+      }
+    });
+  }
+  function atualizarPing253() {
+    $.get("ping.php", { ip: '10.40.10.253' }, function (data) {
+      if (data == 'Offline') {
+        $("#atualizarPing253").addClass('alert-danger');
+        $("#atualizarPing253").removeClass('alert-info');
+        $("#pingOutput253").html('<b>' + data + '</b>');
+        $("#atualizarPing253").insertAfter("#primeiroMeio");
+        $('#playButton').click();
+      } else {
+        $("#atualizarPing253").removeClass('alert-danger');
+        $("#atualizarPing253").addClass('alert-info');
+        $("#pingOutput253").html(data);
+      }
+    });
+  }
+  function atualizarPing254() {
+    $.get("ping.php", { ip: '8.8.8.8' }, function (data) {
+      if (data == 'Offline') {
+        $("#atualizarPing254").addClass('alert-danger');
+        $("#atualizarPing254").removeClass('alert-info');
+        $("#pingOutput254").html('<b>' + data + '</b>');
+        $("#atualizarPing254").insertAfter("#primeiroMeio");
+        $('#playButton').click();
+      } else {
+        $("#atualizarPing254").removeClass('alert-danger');
+        $("#atualizarPing254").addClass('alert-info');
+        $("#pingOutput254").html(data);
+      }
+    });
+  }
+  function atualiza() {
+    atualizarPing1();
+    atualizarPing6();
+    atualizarPing7();
+    atualizarPing8();
+    atualizarPing9();
+    atualizarPing10();
+    atualizarPing11();
+    atualizarPing12();
+    atualizarPing13();
+    atualizarPing14();
+    atualizarPing202();
+    atualizarPing203();
+    atualizarPing233();
+    atualizarPing235();
+    atualizarPing236();
+    atualizarPing239();
+    atualizarPing253();
+    atualizarPing254();
+
+  }
+
+  // Atualiza o ping a cada 5 segundos
+  setInterval(atualiza, 5000);
+
+</script>
